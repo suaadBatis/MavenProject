@@ -15,16 +15,18 @@ public class ScrolDownPageObject {
   public ScrolDownPageObject ( IOSDriver <IOSElement> driver ) {
 
 
-
       PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(5)), this);
-
   }
 
      @iOSXCUITFindBy(accessibility = "Alert Views")
-     public WebElement Scrol1;
+     private IOSElement Scrol1;
 
     @iOSXCUITFindBy(xpath= "//XCUIElementTypeStaticText[@name=\"Alert Views\"]")
-    IOSElement  Scrol2;
+   public IOSElement  Scrol2;
+
+    public IOSElement getScrol1(){
+        return Scrol1;
+    }
 
 
 }
