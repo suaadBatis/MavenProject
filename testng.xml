@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+  <test name="SuaadTest">
+    <classes>
+      <class name="AppiumTest"/>
+      <class name="RESTAPITest"/>
+      <class name="SeleniumTest"/>
+    </classes>
+  </test> <!-- SuaadTest -->
+</suite> <!-- Default Suite -->

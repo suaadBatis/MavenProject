@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example</groupId>
+    <artifactId>SuaadTest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <webXml>WebContent\WEB-INF\web.xml</webXml>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.6.0</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+   <profiles> <!-- Profiles start  -->
+      <profile>
+     <id>Regression</id>
+        <build>
+            <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>testng.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <version>3.6.0</version>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <source>8</source>
+                            <target>8</target>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </pluginManagement>
+        </build>
+    </profile>
+      <profile>
+         <id>Smoking</id>
+         <build>
+             <pluginManagement>
+                 <plugins>
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                         <artifactId>maven-surefire-plugin</artifactId>
+                         <version>3.0.0-M4</version>
+                         <configuration>
+                             <suiteXmlFiles>
+                                 <suiteXmlFile>testng2.xml</suiteXmlFile>
+                             </suiteXmlFiles>
+                         </configuration>
+                     </plugin>
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                         <version>3.6.0</version>
+                         <artifactId>maven-compiler-plugin</artifactId>
+                         <configuration>
+                             <source>8</source>
+                             <target>8</target>
+                             <encoding>UTF-8</encoding>
+                         </configuration>
+                     </plugin>
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                         <artifactId>maven-enforcer-plugin</artifactId>
+                         <version>3.0.0-M3</version>
+                         <executions>
+                             <execution>
+                                 <id>enforce-maven</id>
+                                 <goals>
+                                     <goal>enforce</goal>
+                                 </goals>
+                                 <configuration>
+                                     <rules>
+                                         <requireMavenVersion>
+                                             <version>3.0</version>
+                                         </requireMavenVersion>
+                                     </rules>
+                                 </configuration>
+                             </execution>
+                         </executions>
+                     </plugin>
+                 </plugins>
+             </pluginManagement>
+         </build>
+     </profile>
+   </profiles> <!-- profiles end  -->
+
+
+    <dependencies> <!-- dependencies start  -->
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+      <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.2.0</version>
+            <scope>test</scope>
+     </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.13</version>
+         <scope>test</scope>
+      </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.3.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>cglib</groupId>
+                    <artifactId>cglib</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- This is required for page factory use with Appium -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+
+
+
+
+      <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-api</artifactId>
+          <version>2.13.0</version>
+      </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.0.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies> <!-- dependencies end  -->
+</project>
