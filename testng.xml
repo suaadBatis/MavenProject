@@ -3,9 +3,7 @@
 <suite name="Default Suite">
   <test name="SuaadTest">
     <classes>
-      <class name="AppiumTest"/>
-      <class name="RESTAPITest"/>
-      <class name="SeleniumTest"/>
+      <class name="FirstClass"/>
     </classes>
   </test> <!-- SuaadTest -->
 </suite> <!-- Default Suite -->

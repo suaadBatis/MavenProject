@@ -3,11 +3,10 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-
 import java.time.Duration;
 
 public class utilities {
-IOSDriver <IOSElement> driver;
+    IOSDriver <IOSElement> driver;
     public utilities(IOSDriver <IOSElement> driver){
      this.driver = driver;
     }
